@@ -5,6 +5,7 @@ AM_CFLAGS = \
 	$(WARN_CFLAGS) \
 	-I$(top_srcdir) \
 	$(PTHREADSTUBS_CFLAGS) \
+	$(VALGRIND_CFLAGS) \
 	-I$(top_srcdir)/include/drm
 
 libdrm_freedreno_la_LTLIBRARIES = libdrm_freedreno.la
@@ -27,4 +28,4 @@ pkgconfigdir = @pkgconfigdir@
 pkgconfig_DATA = libdrm_freedreno.pc
 
 TESTS = freedreno-symbol-check
-EXTRA_DIST = Android.mk $(TESTS)
+EXTRA_DIST = $(TESTS)

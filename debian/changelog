@@ -1,15 +1,149 @@
-libdrm (2.4.67-1ubuntu0.16.04.2) xenial; urgency=medium
+libdrm (2.4.83-1~16.04.1) xenial; urgency=medium
 
-  * add-more-kbl-pciids.diff, remove-invalid-kbl-pciids.diff: Update KBL
-    pciids. (LP: #1600124)
+  * Backport to xenial. (LP: #1716203)
+    - use dh9
 
- -- Timo Aaltonen <tjaalton@debian.org>  Fri, 12 Aug 2016 09:42:55 +0300
+ -- Timo Aaltonen <tjaalton@debian.org>  Tue, 10 Oct 2017 17:28:59 +0300
 
-libdrm (2.4.67-1ubuntu0.16.04.1) xenial; urgency=medium
+libdrm (2.4.83-1) unstable; urgency=medium
 
-  * Add missing SKL/BXT pci-id's (LP: #1577735)
+  * New upstream release.
 
- -- Timo Aaltonen <tjaalton@debian.org>  Tue, 03 May 2016 14:36:23 +0300
+ -- Timo Aaltonen <tjaalton@debian.org>  Tue, 03 Oct 2017 11:15:26 +0300
+
+libdrm (2.4.82-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/upstream/signing-key.asc: add key from Lucas Stach.
+  * Add libdrm-common package for new data files.
+  * debian/*.symbols: add new symbols.
+  * debian/rules: Bump shlibs for the libraries with new symbols.
+  * debian/control: Bump Standards-Version to 4.0.0; no changes needed.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 28 Jul 2017 22:40:20 +0200
+
+libdrm (2.4.81-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Fri, 23 Jun 2017 11:57:14 +0200
+
+libdrm (2.4.81-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Bump libdrm2's and libdrm-amdgpu1's symbols and shlibs.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Fri, 09 Jun 2017 10:41:36 +0200
+
+libdrm (2.4.80-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Bump libdrm-amdgpu1's and libdrm-etnaviv1's symbols and shlibs.
+  * Remove libpthread-stubs0-dev build-dep per configure.ac.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Wed, 19 Apr 2017 15:35:21 +0200
+
+libdrm (2.4.77-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Bump libdrm-amdgpu1 symbols.
+  * Update debian/upstream/signing-key.asc
+
+ -- Jordan Justen <jordan.l.justen@intel.com>  Wed, 05 Apr 2017 02:30:35 -0700
+
+libdrm (2.4.76-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update extend-diff-ignore.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Thu, 30 Mar 2017 10:41:10 +0200
+
+libdrm (2.4.75-2) experimental; urgency=medium
+
+  * Cherry-pick 19c4cfc (intel: Add handle to hashtable before freeing
+    along an error path) from upstream (LP: #1671377).
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Tue, 21 Mar 2017 18:29:17 +0100
+
+libdrm (2.4.75-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Bump libdrm2's and libdrm-intel1's symbols and shlibs.
+  * Update extend-diff-ignore.
+  * Add debian/source/format file.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Wed, 01 Feb 2017 17:08:17 +0100
+
+libdrm (2.4.74-2) experimental; urgency=medium
+
+  [ Andreas Boll ]
+  * Switch to dbgsym packages.
+  * Enable building etnaviv on armhf (Closes: #852685).
+
+  [ Emilio Pozuelo Monfort ]
+  * Stop passing --disable-silent-rules to configure, debhelper does it now.
+  * Don't override dh_auto_install, it defaults to debian/tmp.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 27 Jan 2017 17:54:01 +0100
+
+libdrm (2.4.74-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update debian/upstream/signing-key.asc.
+  * Bump libdrm2's, libdrm-freedreno1's and libdrm-intel1's symbols and
+    shlibs.
+  * Bump debhelper compat to 10.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Tue, 29 Nov 2016 19:01:04 +0100
+
+libdrm (2.4.73-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump libdrm2's, libdrm-amdgpu1's, libdrm-freedreno1's and libdrm-
+    intel1's symbols and shlibs.
+  * Update a bunch of URLs in packaging to https.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Tue, 15 Nov 2016 15:43:02 +0100
+
+libdrm (2.4.71-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update symbols file and bump shlibs for libdrm2.
+  * Update libdrm-intel1.symbols and shlibs.
+  * Remove Hurd from the architecture list. It FTBFS, haven't built in
+    the past and won't be useful without the equivalent of the Linux
+    Direct Rendering Manager (DRM) subsystem.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Thu, 06 Oct 2016 10:31:27 +0200
+
+libdrm (2.4.70-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update libdrm-freedreno1.symbols and shlibs.
+  * source/local-options: Add more files to extend-diff-ignore option.
+    Fixes 17 patch-system-but-direct-changes-in-diff lintian warnings.
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Mon, 25 Jul 2016 12:32:20 +0200
+
+libdrm (2.4.69-1) unstable; urgency=medium
+
+  [ Andreas Boll ]
+  * New upstream release.
+  * Update debian/upstream/signing-key.asc.
+  * Bump Standards-Version to 3.9.8, no changes needed.
+  * Update watch url to use https instead of http.
+
+  [ Julien Cristau ]
+  * Build libdrm-tegra on arm64 (closes: #828023).  Thanks, Martin Michlmayr!
+
+ -- Andreas Boll <andreas.boll.dev@gmail.com>  Thu, 21 Jul 2016 10:25:17 +0200
+
+libdrm (2.4.68-1) unstable; urgency=medium
+
+  * New upstream release. (LP: #1577735)
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Tue, 03 May 2016 14:30:06 +0300
 
 libdrm (2.4.67-1) unstable; urgency=medium
 

@@ -347,7 +347,7 @@ exynos_prime_fd_to_handle(struct exynos_device *dev, int fd, uint32_t *handle)
  *
  * @dev: a exynos device object.
  * @connect: indicate whether connectoin or disconnection request.
- * @ext: indicate whether edid data includes extentions data or not.
+ * @ext: indicate whether edid data includes extensions data or not.
  * @edid: a pointer to edid data from Wireless Display device.
  *
  * this interface is used to request Virtual Display driver connection or
@@ -417,7 +417,7 @@ exynos_handle_event(struct exynos_device *dev, struct exynos_event_context *ctx)
 
 	i = 0;
 	while (i < len) {
-		e = (struct drm_event *) &buffer[i];
+		e = (struct drm_event *)(buffer + i);
 		switch (e->type) {
 		case DRM_EVENT_VBLANK:
 			if (evctx->version < 1 ||

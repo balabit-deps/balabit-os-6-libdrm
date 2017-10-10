@@ -3598,7 +3598,7 @@ decode_3d_965(struct drm_intel_decode *ctx)
 		instr_out(ctx, 0, "3DSTATE_DEPTH_BUFFER\n");
 		if (IS_GEN5(devid) || IS_GEN6(devid))
 			instr_out(ctx, 1,
-				  "%s, %s, pitch = %d bytes, %stiled, HiZ %d, Seperate Stencil %d\n",
+				  "%s, %s, pitch = %d bytes, %stiled, HiZ %d, Separate Stencil %d\n",
 				  get_965_surfacetype(data[1] >> 29),
 				  get_965_depthformat((data[1] >> 18) & 0x7),
 				  (data[1] & 0x0001ffff) + 1,
@@ -3827,7 +3827,9 @@ drm_intel_decode_context_alloc(uint32_t devid)
 	ctx->devid = devid;
 	ctx->out = stdout;
 
-	if (IS_GEN9(devid))
+	if (IS_GEN10(devid))
+		ctx->gen = 10;
+	else if (IS_GEN9(devid))
 		ctx->gen = 9;
 	else if (IS_GEN8(devid))
 		ctx->gen = 8;
@@ -3899,7 +3901,7 @@ drm_intel_decode(struct drm_intel_decode *ctx)
 	int ret;
 	unsigned int index = 0;
 	uint32_t devid;
-	int size = ctx->base_count * 4;
+	int size;
 	void *temp;
 
 	if (!ctx)
@@ -3909,6 +3911,7 @@ drm_intel_decode(struct drm_intel_decode *ctx)
 	 * the batchbuffer.  This lets us avoid a bunch of length
 	 * checking in statically sized packets.
 	 */
+	size = ctx->base_count * 4;
 	temp = malloc(size + 4096);
 	memcpy(temp, ctx->base_data, size);
 	memset((char *)temp + size, 0xd0, 4096);
