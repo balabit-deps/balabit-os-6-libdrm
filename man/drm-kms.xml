@@ -126,7 +126,7 @@
           <listitem>
             <para><emphasis>Framebuffers</emphasis> are abstract memory objects
                   that provide a source of pixel data to scanout to a CRTC.
-                  Applications explicitely request the creation of framebuffers
+                  Applications explicitly request the creation of framebuffers
                   and can control their behavior. Framebuffers rely on the
                   underneath memory manager for low-level memory operations.
                   When creating a framebuffer, applications pass a memory handle
@@ -309,8 +309,8 @@ static int modeset_find_crtc(int fd, drmModeRes *res, drmModeConnector *conn)
   <refsect1>
     <title>Reporting Bugs</title>
     <para>Bugs in this manual should be reported to
-          http://bugs.freedesktop.org under the "Mesa" product, with "Other" or
-          "libdrm" as the component.</para>
+      https://bugs.freedesktop.org/enter_bug.cgi?product=DRI&amp;component=libdrm
+      under the "DRI" product, component "libdrm"</para>
   </refsect1>
 
   <refsect1>
